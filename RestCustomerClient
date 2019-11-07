@@ -1,0 +1,68 @@
+package com.journaldev.spring;
+
+import java.util.LinkedHashMap;
+import java.util.List;
+
+import org.springframework.web.client.RestTemplate;
+
+import com.journaldev.spring.controller.EmpRestURIConstants;
+import com.journaldev.spring.model.Employee;
+
+public class TestSpringRestExample {
+
+	public static final String URI = "http://localhost:8080/Customer";
+	
+	
+
+
+	public void orderBricks() {
+		RestTemplate restTemplate = new RestTemplate();
+		Customer cus= new Customer();
+		cus.setId(1);
+                cus.setCustomerName("Raghu");
+		cus.setNoOfBricks(100);
+		ResponseEntity<Customer> customer=  restTemplate.postForEntity(URI/createOrder, cus, Customer.class);
+if (customer.getStatusCode == HttpStatus.OK) {
+  // Update customer with order reference
+}
+		
+	}
+
+	public void getOrderDetails() {
+RestTemplate restTemplate = new RestTemplate();
+ResponseEntity<Custometr> responseEntity = restTemplate.getForEntity(URI+"/getDetails/1", Customer.class);
+
+if (responseEntity.getStatusCode() == HttpStatus.OK) {
+  Customer cus =responseEntity.getBody();
+return cus;
+}else{
+//return custom message 
+}
+		
+	}
+
+
+	public void getAllCustomerDetails() {
+		RestTemplate restTemplate = new RestTemplate();
+		List<LinkedHashMap> cus= restTemplate.getForObject(URI+"/getAllCustomers", List.class);
+		System.out.println(emps.size());
+		for(LinkedHashMap map : cus){
+			System.out.println("ID="+map.get("id")+",CustomerName="+map.get("customerName")+",OrderReference="+map.get("orderReference"));;
+		}
+	}
+
+	public void updateCustomer(@PathVariable("OrderReference" String reference))
+{
+    
+     
+      RestTemplate restTemplate = new RestTemplate();
+Customer updatedCustomer = new Customer();// get details of customer with order reference 
+updatedCustomer.setOrderRefernce("200");
+    restTemplate.put ( URI+"/updateCustomer/1", updatedEmployee, Customer.class);
+    
+     
+   
+}
+	
+	
+}
