@@ -1,0 +1,27 @@
+public class Customer implements Serializable{
+
+	private static final long serialVersionUID = -7788619177798333712L;
+	
+	private int id;
+	private String customerName;
+	private int noOfBricks;
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getcustomerName() {
+		return customerName;
+	}
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
+	}
+  public int getNoOfBricks() {
+		return noOfBricks;
+	}
+	public void setId(int noOfBricks) {
+		this.noOfBricks = noOfBricks;
+	}
+}
